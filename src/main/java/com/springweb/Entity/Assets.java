@@ -1,54 +1,35 @@
 package com.springweb.Entity;
 import java.util.UUID;
 
-public class Assets {
+public abstract class Assets {
 
-    private  int id;
-    private UUID serialNo;
-    private String condition;
-    private boolean available;
     private boolean assigned;
     private String assignedTo;
     private String department;
     private String manufacturer;
     private String category;
-    private String model;
+    private String condition;
 
-    public Assets(
-            int id, UUID serialNo,
-            String condition,
-            boolean available,
-            boolean assigned,
-            String assignedTo,
-            String department,
-            String manufacturer,
-            String category,
-            String model) {
-        this.id = id;
-        this.serialNo = serialNo;
-        this.condition = condition;
-        this.available = available;
+    {
+        this.assigned=false;
+        this.assignedTo="@umuziProperty.org is default";
+    }
+
+    public Assets(boolean assigned, String assignedTo,
+                  String department, String manufacturer,
+                  String category) {
+
         this.assigned = assigned;
         this.assignedTo = assignedTo;
         this.department = department;
         this.manufacturer = manufacturer;
         this.category = category;
-        this.model = model;
     }
 
     public Assets(){}
 
     //setter methods
 
-    public void setId(int id) {
-        this.id = id;
-    }
-    public void setSerialNo(UUID serialNo) { this.serialNo = serialNo;
-    }
-    public void setCondition(String condition) { this.condition = condition;
-    }
-    public void setAvailable(boolean available) { this.available = available;
-    }
     public void setAssigned(boolean assigned) { this.assigned = assigned;
     }
     public void setAssignedTo(String assignedTo) { this.assignedTo = assignedTo;
@@ -59,17 +40,10 @@ public class Assets {
     }
     public void setCategory(String category) { this.category = category;
     }
-    public void setModel(String model) { this.model = model;
-    }
+    public void setCondition(String status){ this.condition=status;
+    };
 
     //getter methods
-
-    public int getId() {return id;
-    }
-    public UUID getSerialNo() { return serialNo; }
-    public String getCondition() { return condition; }
-    public boolean isAvailable() { return available;
-    }
     public boolean isAssigned() { return assigned;
     }
     public String getAssignedTo() { return assignedTo;
@@ -79,8 +53,6 @@ public class Assets {
     public String getManufacturer() { return manufacturer;
     }
     public String getCategory() { return category;
-    }
-    public String getModel() { return model;
     }
 
 }
