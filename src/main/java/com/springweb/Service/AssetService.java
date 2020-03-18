@@ -1,6 +1,6 @@
 package com.springweb.Service;
 
-import com.springweb.Dao.AssetDao;
+import com.springweb.Dao.fakeDataAccessService;
 import com.springweb.Entity.Assets;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,27 +8,27 @@ import org.springframework.stereotype.Service;
 import java.util.Collection;
 
 @Service
-public class StudentService {
+public class AssetService {
     @Autowired
-    private AssetDao assetDao;
+    private fakeDataAccessService fakeDataAccessService;
 
     public Collection<Assets> getAllAssets(){
-        return assetDao.getAllAssets();
+        return fakeDataAccessService.getAllAssets();
     }
 
     public Assets getAssetById(int id){
-        return this.assetDao.getAssetById(id);
+        return this.fakeDataAccessService.getAssetById(id);
     }
 
     public void removeAssetById(int id) {
-        assetDao.removeAssetById(id);
+        fakeDataAccessService.removeAssetById(id);
     }
 
     public void updateAsset(Assets asset) {
-        assetDao.updateAsset(asset);
+        fakeDataAccessService.updateAsset(asset);
     }
 
     public void addAsset(Assets asset) {
-    assetDao.addAssetToDb(asset);
+    fakeDataAccessService.addAssetToDb(asset);
     }
 }
